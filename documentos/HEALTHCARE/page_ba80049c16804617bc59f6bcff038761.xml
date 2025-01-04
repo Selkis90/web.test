@@ -1,0 +1,59 @@
+<p:Page xmlns:p="http://www.evolus.vn/Namespace/Pencil"><p:Properties><p:Property name="id">ba80049c16804617bc59f6bcff038761</p:Property><p:Property name="name">VER CASOS 0</p:Property><p:Property name="width">3500</p:Property><p:Property name="height">2040</p:Property><p:Property name="pageFileName">page_ba80049c16804617bc59f6bcff038761.xml</p:Property><p:Property name="zoom">0.4096</p:Property></p:Properties><p:Content><g xmlns="http://www.w3.org/2000/svg" xmlns:p="http://www.evolus.vn/Namespace/Pencil" p:type="Shape" p:def="Evolus.Common:Bitmap" id="d58f794f37bc461bbd03f5504e24195d" transform="matrix(1,0,0,1,0.2105712890625,4.10528564453125)"><p:metadata><p:property name="box"><![CDATA[3490.4479980468745,1735.6872558593748]]></p:property><p:property name="imageData"><![CDATA[1920,954,ref://26a24b901088418eaf718c671a9d730b.png]]></p:property><p:property name="withBlur"><![CDATA[false]]></p:property><p:property name="fillColor"><![CDATA[#FFFFFF00]]></p:property><p:property name="strokeColor"><![CDATA[#000000FF]]></p:property><p:property name="strokeStyle"><![CDATA[0|]]></p:property></p:metadata>
+            <defs>
+                <filter height="1.2558399" y="-0.12792" width="1.06396" x="-0.03198" p:name="imageShading" id="5e5912bb0e6746299695b9f9d7d3defe">
+                    <feGaussianBlur stdDeviation="1.3325" in="SourceAlpha"/>
+                </filter>
+                <g p:name="container" id="193d2aad37b24cda9929c79e7e5c8571">
+                    <rect style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0); stroke-opacity: 1; stroke-width: 0; fill-opacity: 0;" p:name="bgRect" id="45017c2cea75487abd967017631439e7" transform="translate(0,0)" height="1735.69" width="3490.45"/>
+                    <g p:name="imageContainer" id="89e5bf81a590468895599b8dfa5470d4" transform="scale(1.8179416656494138,1.819378674905005)">
+                        <image xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" p:name="image" id="ff2a9fb8d0e544598477bc0723d9d57a" xlink:href="file:///run/user/1000/snap.pencil/tmp-5304EFv9trvYRFwR/refs/26a24b901088418eaf718c671a9d730b.png?token=1731890102000" width="1920" height="954"/>
+                    </g>
+                </g>
+            </defs>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#193d2aad37b24cda9929c79e7e5c8571" transform="translate(1, 1)" p:filter="url(#5e5912bb0e6746299695b9f9d7d3defe)" style="opacity: 0.6; visibility: hidden; display: none;" p:name="bgCopy" id="45102015dc854b1cbd20d92b86a4f301"/>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#193d2aad37b24cda9929c79e7e5c8571"/>
+        </g><g xmlns="http://www.w3.org/2000/svg" p:type="Shape" p:def="Evolus.Common:Bitmap" id="0c694b1390454ca6b879deacf0d7aae9" transform="matrix(1,0,0,1,-255.3583984375,963.810546875)"><p:metadata><p:property name="box"><![CDATA[3964.233398437499,1239.0136718749998]]></p:property><p:property name="imageData"><![CDATA[74,23,ref://4dcca903321140b9b91dc9f8e000c79b.png]]></p:property><p:property name="withBlur"><![CDATA[false]]></p:property><p:property name="fillColor"><![CDATA[#FFFFFF00]]></p:property><p:property name="strokeColor"><![CDATA[#000000FF]]></p:property><p:property name="strokeStyle"><![CDATA[0|]]></p:property></p:metadata>
+            <defs>
+                <filter height="1.2558399" y="-0.12792" width="1.06396" x="-0.03198" p:name="imageShading" id="5d72e40c6360488787223363cdde945b">
+                    <feGaussianBlur stdDeviation="1.3325" in="SourceAlpha"/>
+                </filter>
+                <g p:name="container" id="9372859745c24300b6b150763b4327d6">
+                    <rect style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0); stroke-opacity: 1; stroke-width: 0; fill-opacity: 0;" p:name="bgRect" id="3eb5617ed6da420f95047dd9b0a2884d" transform="translate(0,0)" width="3964.23" height="1239.01"/>
+                    <g p:name="imageContainer" id="4513cdda81f04270a2658820f09b120c" transform="scale(53.570721600506744,53.87015964673912)">
+                        <image xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" p:name="image" id="c0d40d5e66d748eaa22fbe8fde52a980" xlink:href="file:///run/user/1000/snap.pencil/tmp-5304EFv9trvYRFwR/refs/4dcca903321140b9b91dc9f8e000c79b.png?token=1733197486000" width="74" height="23"/>
+                    </g>
+                </g>
+            </defs>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#9372859745c24300b6b150763b4327d6" transform="translate(1, 1)" p:filter="url(#5d72e40c6360488787223363cdde945b)" style="opacity: 0.6; visibility: hidden; display: none;" p:name="bgCopy" id="c1905e1927a5480892a168d01d8e84ac"/>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#9372859745c24300b6b150763b4327d6"/>
+        </g><g xmlns="http://www.w3.org/2000/svg" p:type="Shape" p:def="Evolus.iOSWireframe:button" p:sc="Green Button" id="1ee15c2feac04438a16fe1fe954fb72b" transform="matrix(1,0,0,1,540,560.419921875)"><p:metadata><p:property name="box"><![CDATA[508.99999999999983,235.58007812500006]]></p:property><p:property name="status"><![CDATA[green]]></p:property><p:property name="strokeStyle"><![CDATA[1|]]></p:property><p:property name="textContent"><![CDATA[54 CASOS CERRADOS]]></p:property><p:property name="textFont"><![CDATA[Helvetica|bold|normal|40px|none|0]]></p:property><p:property name="textColor"><![CDATA[#FFFFFFFF]]></p:property><p:property name="textAlign"><![CDATA[1,1]]></p:property></p:metadata>
+			<defs>
+				<linearGradient x1="0%" y1="0%" x2="0%" y2="100%" p:name="linearFill" id="0a505e4b2b0a443e83030fe639cf10a1">
+					<stop style="stop-color: rgb(191, 217, 177); stop-opacity: 1;" offset="0" p:name="stop1" id="3a0283f7d5b04e05b735cfce98166070"/>
+					<stop style="stop-color: rgb(67, 158, 3); stop-opacity: 1;" offset="1" p:name="stop2" id="6380f2084e284442bc6bcb93ef6ecd01"/>
+				</linearGradient>
+				<linearGradient xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#0a505e4b2b0a443e83030fe639cf10a1" x1="0" y1="0" x2="0" y2="235.58007812500006" gradientUnits="userSpaceOnUse" p:name="linearBgFill" id="7c76733bd8544f5f863196872ac75353"/>
+				<rect width="508" height="234.58" rx="4" ry="4" x="0" y="0" p:name="rrRect" id="96c59c5526444eabb5381319d295096b" transform="translate(1,1)"/>
+				<filter height="1.2558399" y="-0.12792" width="1.06396" x="-0.03198" p:name="shadingFilter" id="17a2518eba104c1eab0d3427071fb07e">
+					<feGaussianBlur stdDeviation="1" in="SourceAlpha"/>
+				</filter>
+			</defs>
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#96c59c5526444eabb5381319d295096b" transform="translate(0, 1)" style="stroke-width: 1px; stroke: rgb(156, 171, 192); fill: rgb(156, 171, 192); fill-opacity: 1; stroke-opacity: 1; visibility: hidden; display: none;" p:name="bgCopy" id="125727ad58d64145a245e7d7f1b1172b"/>
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#96c59c5526444eabb5381319d295096b" style="stroke-width: 1px; fill: url(&quot;#7c76733bd8544f5f863196872ac75353&quot;); stroke: rgb(158, 158, 158); stroke-opacity: 1;" p:name="bgMain" id="861c35facb9348bab64adf2af8f89dd7"/>
+			<text p:name="text" id="6d6c8b0cacd04874bae5a17ba19237f6" transform="translate(36,132)" style="font-family: Helvetica; font-size: 40px; font-weight: bold; font-style: normal; text-decoration: none; fill: rgb(255, 255, 255); fill-opacity: 1;">54 CASOS CERRADOS</text>
+		</g><g xmlns="http://www.w3.org/2000/svg" p:type="Shape" p:def="Evolus.iOSWireframe:button" p:sc="Red Button" id="6fcb520e16744dc782baf81950a5df98" transform="matrix(1,0,0,1,1328,557.1298828125)"><p:metadata><p:property name="box"><![CDATA[511.0000000000001,233.74037499999997]]></p:property><p:property name="status"><![CDATA[red]]></p:property><p:property name="strokeStyle"><![CDATA[1|]]></p:property><p:property name="textContent"><![CDATA[89 CASOS ABIERTOS]]></p:property><p:property name="textFont"><![CDATA[Helvetica|bold|normal|40px|none|0]]></p:property><p:property name="textColor"><![CDATA[#FFFFFFFF]]></p:property><p:property name="textAlign"><![CDATA[1,1]]></p:property></p:metadata>
+			<defs>
+				<linearGradient x1="0%" y1="0%" x2="0%" y2="100%" p:name="linearFill" id="ba84f446f81e4489be9bf1c1d0a9b73b">
+					<stop style="stop-color: rgb(231, 208, 209); stop-opacity: 1;" offset="0" p:name="stop1" id="b7bd790f74064f088d1b65d9cab1c422"/>
+					<stop style="stop-color: rgb(197, 23, 34); stop-opacity: 1;" offset="1" p:name="stop2" id="a9f74f9db6014deeaf368a25d8f50270"/>
+				</linearGradient>
+				<linearGradient xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ba84f446f81e4489be9bf1c1d0a9b73b" x1="0" y1="0" x2="0" y2="233.74037499999997" gradientUnits="userSpaceOnUse" p:name="linearBgFill" id="51ae3db53463405cbb469d0dc5633daf"/>
+				<rect width="510" height="232.74" rx="4" ry="4" x="0" y="0" p:name="rrRect" id="f70a0ae2bbbb4a15a4a40f24bffbeedf" transform="translate(1,1)"/>
+				<filter height="1.2558399" y="-0.12792" width="1.06396" x="-0.03198" p:name="shadingFilter" id="5668d761de7842abbfc8a906618f5a2d">
+					<feGaussianBlur stdDeviation="1" in="SourceAlpha"/>
+				</filter>
+			</defs>
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#f70a0ae2bbbb4a15a4a40f24bffbeedf" transform="translate(0, 1)" style="stroke-width: 1px; stroke: rgb(156, 171, 192); fill: rgb(156, 171, 192); fill-opacity: 1; stroke-opacity: 1; visibility: hidden; display: none;" p:name="bgCopy" id="8fcd701257a64aafbdb20f66a44b0c5b"/>
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#f70a0ae2bbbb4a15a4a40f24bffbeedf" style="stroke-width: 1px; fill: url(&quot;#51ae3db53463405cbb469d0dc5633daf&quot;); stroke: rgb(158, 158, 158); stroke-opacity: 1;" p:name="bgMain" id="3f04fc7fa4f047f9ae1c3c8fd1882677"/>
+			<text p:name="text" id="73593d5c90804c9a8a904ce34ff1b2c1" transform="translate(49,131)" style="font-family: Helvetica; font-size: 40px; font-weight: bold; font-style: normal; text-decoration: none; fill: rgb(255, 255, 255); fill-opacity: 1;">89 CASOS ABIERTOS</text>
+		</g></p:Content></p:Page>
