@@ -478,7 +478,7 @@ button {
 .getquote_bt_1 {
     width: 180px;
     float: left;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 .getquote_bt_1 a {
@@ -489,6 +489,7 @@ button {
     background-color: #1becde;
     padding: 7px 0px;
     text-align: center;
+    margin: 10px;
 }
 
 .getquote_bt_1 a:hover {

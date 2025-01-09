@@ -1,6 +1,20 @@
 <?php
+session_start();
+
+// Evitar almacenamiento en caché
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+// Si el usuario ya ha iniciado sesión, redirigir a la página principal
+if (isset($_SESSION['usuario'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 require_once '../conexion.php';
 require_once '../controller/inicioController.php';
+
 
 ?>
 

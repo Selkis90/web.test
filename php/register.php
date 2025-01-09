@@ -1,4 +1,17 @@
 <?php
+session_start();
+
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+// Si el usuario ya ha iniciado sesión, redirigir a la página principal o dashboard
+if (isset($_SESSION['usuario'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
+
 require_once '../conexion.php';
 require_once '../controller/inicioController.php';
 
@@ -7,7 +20,7 @@ require_once '../controller/inicioController.php';
 <!---------------  Formulario para realizar el registro de personas a la base de datos  ---------------->
 
 <!-- <h3>Ingrese los datos del formulario para registrarse como usuario.</h3> -->
-
+s
 <form action="../controller/inicioController.php" method="post">
     <h2>Registrarse</h2>
     <label for="nombre">Nombre</label>
