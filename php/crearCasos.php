@@ -52,7 +52,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../html/estadistica.html">Estadisticas</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active" >
                         <a class="nav-link" href="../html/news.html">Nuevo modulo</a>
                     </li>
                     <li class="nav-item">
