@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // Evitar almacenamiento en caché
@@ -13,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
 }
 
 require_once '../conexion.php';
-require_once '../controller/inicioController.php';
+// require_once '../controller/inicioController.php';
 
 
 ?>

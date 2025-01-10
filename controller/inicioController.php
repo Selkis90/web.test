@@ -1,4 +1,11 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+
+
 require_once '../conexion.php';
 
 /* controller para registrarse */
@@ -43,14 +50,34 @@ if (isset($_POST['iniciar_sesion'])) {
 
     if ($resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
+
+        // Proceso cuando el usuario y contraseña SI son correctos:
         if (password_verify($contraseña, $usuario['contraseña'])) {
+
+            var_dump($_SESSION);
+
+            // crear la variable de sesión que se podrá verififcar desde cualquier lugar
+            $_SESSION['usuario'] = true;
+
             echo "Inicio de sesión exitoso";
+
+            var_dump($_SESSION);
+
+            // exit;
+
             // Redirigir al usuario o establecer sesión
-            header("Location:../html/menu.html");
+            header("Location:../php/menu.php");
         } else {
+            // Proceso cuando NO son correctos los datos
+
+            // Anular la variable de sesion
+            $_SESSION['usuario'] = false;
+
             echo "Contraseña incorrecta";
         }
     } else {
         echo "Usuario no encontrado";
     }
+
+
 }
