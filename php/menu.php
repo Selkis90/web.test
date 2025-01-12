@@ -9,6 +9,8 @@ if (empty($_SESSION['usuario'])) {
    $redirectUrl = '../index.php';
    exit();
 }
+
+echo "Bienvenido, ". $_SESSION['usuario'];
 ?>
 
 
@@ -62,22 +64,22 @@ if (empty($_SESSION['usuario'])) {
                   <a class="nav-link" href="/logout.php">Cerrar sesión</a>
                </li>
                <li class="nav-item active">
-                  <a class="nav-link" href="menu.html">Inicio</a>
+                  <a class="nav-link" href="menu.php">Inicio</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="casos.html">Casos</a>
+                  <a class="nav-link" href="casos.php">Casos</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="estadistica.html">Estadisticas</a>
+                  <a class="nav-link" href="estadistica.php">Estadisticas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="news.html">Nuevo modulo</a>
+                  <a class="nav-link" href="news.php">Nuevo modulo</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="client.html">Nuevo modulo</a>
+                  <a class="nav-link" href="client.php">Nuevo modulo</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contactanos.html">Contactanos</a>
+                  <a class="nav-link" href="contactanos.php">Contactanos</a>
                </li>
                <li class="nav-item">
                   <!-- BUSCADOR -->
