@@ -1,36 +1,16 @@
 <?php
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-
 session_start();
 
-// Evitar almacenamiento en caché
-/* header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache"); */
-/* 
-
-var_dump($_SESSION);
-
-exit; */
-
-// Si el usuario ya ha iniciado sesión, redirigir a la página principal
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] === false ) {
-
-   $ir_a = '../index.php';
-
-   echo <<<EOF
-   <meta http-equiv="refresh" content="4; URL={$ir_a}">
-   <h1>NO se encontró la variable de sesión: => Redirección a: {$ir_a}</h1>
-EOF;
-
-   // header("Location: ../index.php");
+// Verificar si el usuario ha iniciado sesión
+if (empty($_SESSION['usuario'])) {
+   $redirectUrl = '../index.php';
    exit();
 }
-
 ?>
+
 
 
 
