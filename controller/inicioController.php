@@ -54,14 +54,12 @@ if (isset($_POST['iniciar_sesion'])) {
         // Proceso cuando el usuario y contraseña SI son correctos:
         if (password_verify($contraseña, $usuario['contraseña'])) {
 
-            var_dump($_SESSION);
 
             // crear la variable de sesión que se podrá verififcar desde cualquier lugar
             $_SESSION['usuario'] = true;
 
             echo "Inicio de sesión exitoso";
 
-            var_dump($_SESSION);
 
             // exit;
 
