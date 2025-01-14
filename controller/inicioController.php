@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 session_start();
 
-
 require_once '../conexion.php';
 
 /* controller para registrarse */
@@ -54,12 +53,10 @@ if (isset($_POST['iniciar_sesion'])) {
         // Proceso cuando el usuario y contraseña SI son correctos:
         if (password_verify($contraseña, $usuario['contraseña'])) {
 
-
             // crear la variable de sesión que se podrá verififcar desde cualquier lugar
             $_SESSION['usuario'] = true;
 
             echo "Inicio de sesión exitoso";
-
 
             // exit;
 

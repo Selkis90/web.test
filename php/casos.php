@@ -11,8 +11,6 @@ if (empty($_SESSION['usuario'])) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,24 +67,24 @@ if (empty($_SESSION['usuario'])) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/logout.php">Cerrar sesión</a>
+            <a class="nav-link" href="../logout.php">Cerrar sesión</a>
           </li>
-          <a class="nav-link" href="menu.php">Inicio</a>
+          <a class="nav-link" href="./menu.php">Inicio</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="casos.php">Casos</a>
+            <a class="nav-link" href="./casos.php">Casos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="estadistica.php">Estadisticas</a>
+            <a class="nav-link" href="./estadistica.php">Estadisticas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="news.php">Nuevo modulo</a>
+            <a class="nav-link" href="./news.php">Nuevo modulo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="client.php">Nuevo modulo</a>
+            <a class="nav-link" href="./client.php">Nuevo modulo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contactanos.php">Contactanos</a>
+            <a class="nav-link" href="./contactanos.php">Contactanos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><img src="/images/search-icon.png" /></a>

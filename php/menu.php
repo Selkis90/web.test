@@ -4,7 +4,6 @@
 ini_set('display_errors', 1); // Muestra los errores de PHP en la pantalla si esta en 0 no muestra errores si esta en 1 si muestra errores
 error_reporting(E_ALL); // Muestra todos los tipos de errores, advertencias y mensajes de depuración
 
-
 session_start();
 
 // Verificar si el usuario ha iniciado sesión
@@ -13,11 +12,8 @@ if (empty($_SESSION['usuario'])) {
    exit();
 }
 
-echo "Bienvenido, ". $_SESSION['usuario'];
+/* echo "Bienvenido, " . $_SESSION['usuario']; */
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,22 +63,22 @@ echo "Bienvenido, ". $_SESSION['usuario'];
                   <a class="nav-link" href="/logout.php">Cerrar sesión</a>
                </li>
                <li class="nav-item active">
-                  <a class="nav-link" href="menu.php">Inicio</a>
+                  <a class="nav-link" href="./menu.php">Inicio</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="casos.php">Casos</a>
+                  <a class="nav-link" href="./casos.php">Casos</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="estadistica.php">Estadisticas</a>
+                  <a class="nav-link" href="./estadistica.php">Estadisticas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="news.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./news.php">Nuevo modulo</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="client.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./client.php">Nuevo modulo</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contactanos.php">Contactanos</a>
+                  <a class="nav-link" href="./contactanos.php">Contactanos</a>
                </li>
                <li class="nav-item">
                   <!-- BUSCADOR -->
