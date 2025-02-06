@@ -15,7 +15,7 @@ require_once './parametros.php'; // Incluye la configuración global
 
 <body>
     <div class="login-container">
-        <h1>Bienvenido a la aplicación</h1>
+        <h1>Bienvenido a Healthcare</h1>
         <p>Gestiona tu cuenta de forma sencilla</p>
         <div class="d-flex justify-content-center mt-4">
             <a href="<?php echo _URL; ?>php/login.php" class="btn btn-secondary">Iniciar Sesión</a>
