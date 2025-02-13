@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Evitar almacenamiento en caché
@@ -14,25 +13,33 @@ if (isset($_SESSION['usuario'])) {
 }
 
 require_once '../conexion.php';
-// require_once '../controller/inicioController.php';
-
 ?>
 
-<!------------------ Formulario para iniciar sesión -------------------------------->
+<!DOCTYPE html>
+<html lang="es">
 
-<form action="../controller/inicioController.php" method="post">
-    <h2>Iniciar Sesión</h2>
-    <label for="correo_login"></label>
-    <input type="text" name="correo" placeholder="&#128273; Correo electronico">
-    <br>
-    <label for="contraseña"></label>
-    <input type="password" name="contraseña" placeholder="&#128274; contraseña" required>
-    <br>
-    <input type="submit" id="inicio_sesion" name="iniciar_sesion" value="Iniciar Sesión">
-    <br>
-    <a href="./register.php" style="float: right;">Registrarse</a>
-</form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
 
-<?php
-/* require_once '../footer.php'; */
-?>
+<body>
+
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form action="../controller/inicioController.php" method="post">
+            <input type="text" name="correo" placeholder="&#128273; Correo electrónico" required>
+            <br>
+            <input type="password" name="contraseña" placeholder="&#128274; Contraseña" required>
+            <br>
+            <input type="submit" id="inicio_sesion" name="iniciar_sesion" value="Iniciar Sesión" class="btn-Tertiary">
+            <br>
+            <a href="./register.php" class="btn-Quaternary">Registrarse</a>
+        </form>
+    </div>
+
+</body>
+
+</html>

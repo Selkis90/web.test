@@ -18,8 +18,8 @@ require_once './parametros.php'; // Incluye la configuración global
         <h1>Bienvenido a Healthcare</h1>
         <p>Gestiona tu cuenta de forma sencilla</p>
         <div class="d-flex justify-content-center mt-4">
-            <a href="<?php echo _URL; ?>php/login.php" class="btn btn-secondary">Iniciar Sesión</a>
-            <a href="<?php echo _URL; ?>php/register.php" class="btn btn-primary">Registrarse</a>
+            <a href="<?php echo _URL; ?>php/login.php" class="btn btn-primary">Iniciar Sesión</a>
+            <a href="<?php echo _URL; ?>php/register.php" class="btn btn-secondary">Registrarse</a>
         </div>
     </div>
 </body>
