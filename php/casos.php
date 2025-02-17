@@ -1,14 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+require_once '../config/sesion.php';
 
-session_start();
-
-// Verificar si el usuario ha iniciado sesión
-if (empty($_SESSION['usuario'])) {
-  $redirectUrl = '../index.php';
-  exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +14,7 @@ if (empty($_SESSION['usuario'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   <!-- site metas -->
-  <title>Health</title>
+  <title>Casos</title>
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -67,7 +59,7 @@ if (empty($_SESSION['usuario'])) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../logout.php">Cerrar sesión</a>
+            <a class="nav-link" href="/logout.php">Cerrar sesión</a>
           </li>
           <a class="nav-link" href="./menu.php">Inicio</a>
           </li>
@@ -78,10 +70,10 @@ if (empty($_SESSION['usuario'])) {
             <a class="nav-link" href="./estadistica.php">Estadisticas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./news.php">Nuevo modulo</a>
+            <a class="nav-link" href="./news.php">Nuevo modulo 1</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./client.php">Nuevo modulo</a>
+            <a class="nav-link" href="./client.php">Nuevo modulo 2</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./contactanos.php">Contactanos</a>

@@ -1,18 +1,6 @@
 <?php
+require_once '../config/sesion.php';
 
-// Activar la visualización de errores y advertencias en pantalla para facilitar la depuración durante el desarrollo
-ini_set('display_errors', 1); // Muestra los errores de PHP en la pantalla si esta en 0 no muestra errores si esta en 1 si muestra errores
-error_reporting(E_ALL); // Muestra todos los tipos de errores, advertencias y mensajes de depuración
-
-session_start();
-
-// Verificar si el usuario ha iniciado sesión
-if (empty($_SESSION['usuario'])) {
-   $redirectUrl = '../index.php';
-   exit();
-}
-
-/* echo "Bienvenido, " . $_SESSION['usuario']; */
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +14,7 @@ if (empty($_SESSION['usuario'])) {
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>HomeCare</title>
+   <title>Healthcare</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -72,10 +60,10 @@ if (empty($_SESSION['usuario'])) {
                   <a class="nav-link" href="./estadistica.php">Estadisticas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./news.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./news.php">Nuevo modulo 1</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./client.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./client.php">Nuevo modulo 2</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="./contactanos.php">Contactanos</a>

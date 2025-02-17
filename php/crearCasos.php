@@ -1,3 +1,7 @@
+<?php
+require_once '../config/sesion.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,10 +57,10 @@
                         <a class="nav-link" href="./estadistica.php">Estadisticas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="./news.php">Nuevo modulo</a>
+                        <a class="nav-link" href="./news.php">Nuevo modulo 1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./client.php">Nuevo modulo</a>
+                        <a class="nav-link" href="./client.php">Nuevo modulo 2</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./contactanos.php">Contactanos </a>

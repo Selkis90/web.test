@@ -1,3 +1,8 @@
+<?php
+require_once '../config/sesion.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Contact</title>
+   <title>Contactanos</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -53,10 +58,10 @@
                   <a class="nav-link" href="./estadistica.php">Estadisticas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./news.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./news.php">Nuevo modulo 1</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./client.php">Nuevo modulo</a>
+                  <a class="nav-link" href="./client.php">Nuevo modulo 2</a>
                </li>
                <li class="nav-item active">
                   <a class="nav-link" href="./contactanos.php">Contactanos</a>

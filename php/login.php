@@ -1,18 +1,12 @@
 <?php
-session_start();
-
-// Evitar almacenamiento en caché
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
+/* require_once '../config/sesion.php'; */ // Importar la validación de sesión
+require_once '../conexion.php';
 
 // Si el usuario ya ha iniciado sesión, redirigir a la página principal
 if (isset($_SESSION['usuario'])) {
     header("Location: ../index.php");
     exit();
 }
-
-require_once '../conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +17,7 @@ require_once '../conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="../css/login.css">
+    <script src="../logout.php"></script> <!-- Incluir el script desde logout.php -->
 </head>
 
 <body>
