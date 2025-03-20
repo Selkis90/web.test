@@ -34,7 +34,7 @@ if (isset($_POST['registrarse'])) {
     $fecha_registro = date('Y-m-d H:i:s');
 
     $sql_insert = "INSERT INTO usuarios (nombre, correo, telefono, contraseña, fecha_registro) 
-                   VALUES (?, ?, ?, ?, ?)";
+                VALUES (?, ?, ?, ?, ?)";
     $stmt_insert = $conexion->prepare($sql_insert);
     $stmt_insert->bind_param("sssss", $nombre, $correo, $telefono, $contraseña_hashed, $fecha_registro);
 
