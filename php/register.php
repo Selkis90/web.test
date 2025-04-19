@@ -71,6 +71,16 @@ require_once '../conexion.php';
                 <input type="password" name="confirmar_contraseña" placeholder="Confirmar contraseña" class="input-field" required>
             </div>
 
+            <div class="input-group">
+                <select name="rol" class="input-field" required>
+                    <option value="">Seleccione un rol</option>
+                    <option value="1">ADMINISTRADOR</option>
+                    <option value="2">PAE</option>
+                </select>
+            </div>
+
+
+
             <button type="submit" name="registrarse" class="btn-Tertiary">Registrarse</button>
             <a href="./login.php" class="btn-Quaternary">Inicio</a>
         </form>

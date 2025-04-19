@@ -9,6 +9,7 @@ if (isset($_POST['registrarse'])) {
     $telefono = $_POST['telefono'];
     $contraseña = $_POST['contraseña'];
     $confirmar_contraseña = $_POST['confirmar_contraseña'];
+    $rol = $_POST['rol']; // ✅ Se agregó el campo rol
 
     // Verificar si el correo ya está registrado
     $sql_verificar = "SELECT id FROM usuarios WHERE correo = ?";
@@ -33,10 +34,11 @@ if (isset($_POST['registrarse'])) {
     $contraseña_hashed = password_hash($contraseña, PASSWORD_DEFAULT);
     $fecha_registro = date('Y-m-d H:i:s');
 
-    $sql_insert = "INSERT INTO usuarios (nombre, correo, telefono, contraseña, fecha_registro) 
-                VALUES (?, ?, ?, ?, ?)";
+    // ✅ Se corrigió el campo `rol_id` en el insert
+    $sql_insert = "INSERT INTO usuarios (nombre, correo, telefono, contraseña, fecha_registro, rol_id) 
+                VALUES (?, ?, ?, ?, ?, ?)";
     $stmt_insert = $conexion->prepare($sql_insert);
-    $stmt_insert->bind_param("sssss", $nombre, $correo, $telefono, $contraseña_hashed, $fecha_registro);
+    $stmt_insert->bind_param("ssssss", $nombre, $correo, $telefono, $contraseña_hashed, $fecha_registro, $rol);
 
     if ($stmt_insert->execute()) {
         header("Location: ../php/register.php?success=registro_exitoso");
@@ -52,7 +54,8 @@ if (isset($_POST['iniciar_sesion'])) {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
 
-    $sql = "SELECT id, nombre, contraseña FROM usuarios WHERE correo = ?";
+    // ✅ Se corrigió el campo `rol_id` con alias para mantener la lógica actual
+    $sql = "SELECT id, nombre, contraseña, rol_id AS rol FROM usuarios WHERE correo = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();
@@ -66,10 +69,17 @@ if (isset($_POST['iniciar_sesion'])) {
             // ✅ Establecer sesión correctamente
             $_SESSION['usuario'] = true;
             $_SESSION['nombre'] = $usuario['nombre']; // Almacenar nombre en sesión
-            $_SESSION['id'] = $usuario['id']; // Almacenar ID en sesión
+            $_SESSION['id'] = $usuario['id'];         // Almacenar ID en sesión
+            $_SESSION['rol'] = $usuario['rol'];       // ✅ Almacenar rol_id en sesión
 
-            // Redirigir al menú
-            header("Location: ../php/menu.php");
+            // ✅ Redirección según el rol_id
+            if ($usuario['rol'] == 1) {
+                header("Location: ../php/menu.php"); // ADMINISTRADOR
+            } elseif ($usuario['rol'] == 2) {
+                header("Location: ../php/menuPae.php"); // PAE
+            } else {
+                header("Location: ../php/login.php?error=rol_no_valido");
+            }
             exit();
         } else {
             header("Location: ../php/login.php?error=contraseña_incorrecta");
