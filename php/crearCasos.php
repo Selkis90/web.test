@@ -33,6 +33,8 @@ require_once '../config/sesion.php';
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!-- estilo de formulario -->
+    <link rel="stylesheet" href="formulario.css">
 </head>
 
 <body>
@@ -74,108 +76,150 @@ require_once '../config/sesion.php';
     </div>
     <!-- header section end -->
     <!-- news section start -->
-    <div class="news_section layout_padding">
-        <div class="container">
+    <div class="container py-5">
+        <div class="card shadow rounded-4">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Formulario de Activación</h2>
+                <form action="/app.php?controller=activaciones&action=store" method="POST">
+                    <div class="row g-3">
 
-            <h1>Formulario de Activación</h1>
-            <form action="index.php?controller=activaciones&action=create" method="POST">
-                <label for="fecha_activacion">Fecha Activación:</label>
-                <input type="date" name="fecha_activacion" required><br><br>
+                        <div class="col-md-6">
+                            <label for="fecha_activacion" class="form-label">Fecha de Activación</label>
+                            <input type="date" class="form-control" id="fecha_activacion" name="fecha_activacion" required>
+                        </div>
 
-                <label for="trabajador">Trabajador:</label>
-                <input type="text" name="trabajador" required><br><br>
+                        <div class="col-md-6">
+                            <label for="hora_activacion_caso" class="form-label">Hora de Activación de Caso</label>
+                            <input type="time" class="form-control" id="hora_activacion_caso" name="hora_activacion_caso" required>
+                        </div>
 
-                <label for="identificacion">Identificación:</label>
-                <input type="text" name="identificacion" required><br><br>
+                        <div class="col-md-6">
+                            <label for="trabajador" class="form-label">Trabajador</label>
+                            <input type="text" class="form-control" id="trabajador" name="trabajador" required>
+                        </div>
 
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" name="ciudad" required><br><br>
+                        <div class="col-md-6">
+                            <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                            <br>
+                            <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                                <option value="">Seleccione...</option>
+                                <option value="ti">Tarjeta de Identidad</option>
+                                <option value="cc">Cédula de Ciudadanía</option>
+                                <option value="ppt">Permiso por Protección Temporal (PPT)</option>
+                                <option value="pep">Permiso Especial de Permanencia (PEP)</option>
+                                <option value="ce">Cédula de Extranjería</option>
+                                <option value="visa">Visa</option>
+                            </select>
+                        </div>
 
-                <label for="departamento">Departamento:</label>
-                <input type="text" name="departamento" required><br><br>
+                        <div class="col-md-6">
+                            <label for="identificacion" class="form-label">Identificación</label>
+                            <input type="text" class="form-control" id="identificacion" name="identificacion" required>
+                        </div>
 
-                <label for="ips">IPS:</label>
-                <input type="text" name="ips" required><br><br>
+                        <div class="col-md-6">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                        </div>
 
-                <label for="servicio_prestado_inicial">Servicio Prestado Inicial:</label>
-                <input type="text" name="servicio_prestado_inicial" required><br><br>
+                        <div class="col-md-6">
+                            <label for="departamento" class="form-label">Departamento</label>
+                            <input type="text" class="form-control" id="departamento" name="departamento" required>
+                        </div>
 
-                <label for="dias_it_inicial">Días IT Inicial:</label>
-                <input type="text" name="dias_it_inicial" required><br><br>
+                        <div class="col-md-6">
+                            <label for="ips" class="form-label">IPS</label>
+                            <input type="text" class="form-control" id="ips" name="ips" required>
+                        </div>
 
-                <label for="dias_it_acumulado">Días IT Acumulado:</label>
-                <input type="text" name="dias_it_acumulado" required><br><br>
+                        <div class="col-md-6">
+                            <label for="servicio_prestado_inicial" class="form-label">Servicio Prestado Inicial</label>
+                            <input type="text" class="form-control" id="servicio_prestado_inicial" name="servicio_prestado_inicial" required>
+                        </div>
 
-                <label for="rlp">RLP:</label>
-                <input type="text" name="rlp" required><br><br>
+                        <div class="col-md-6">
+                            <label for="rlp" class="form-label">RLP</label>
+                            <br>
+                            <select class="form-select" id="rlp" name="rlp" required>
+                                <option value="">Seleccione...</option>
+                                <option value="1">Sí</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
 
-                <label for="pqr_evento_adverso">PQR Evento Adverso:</label>
-                <input type="text" name="pqr_evento_adverso" required><br><br>
+                        <div class="col-md-6">
+                            <label for="medicamentos" class="form-label">Medicamentos</label>
+                            <input type="text" class="form-control" id="medicamentos" name="medicamentos" required>
+                        </div>
 
-                <label for="rlp_exitoso">RLP Exitoso:</label>
-                <input type="checkbox" name="rlp_exitoso"><br><br>
+                        <div class="col-md-6">
+                            <label for="tipo_medicamento" class="form-label">Tipo de Medicamento</label>
+                            <input type="text" class="form-control" id="tipo_medicamento" name="tipo_medicamento" required>
+                        </div>
 
-                <label for="razon_rlp_no_exitoso">Razón RLP No Exitoso:</label>
-                <input type="text" name="razon_rlp_no_exitoso" required><br><br>
+                        <div class="col-md-6">
+                            <label for="empresa" class="form-label">Empresa</label>
+                            <input type="text" class="form-control" id="empresa" name="empresa" required>
+                        </div>
 
-                <label for="medicamentos">Medicamentos:</label>
-                <input type="text" name="medicamentos" required><br><br>
+                        <div class="col-md-6">
+                            <label for="numero_afiliacion" class="form-label">Número de Afiliación</label>
+                            <input type="text" class="form-control" id="numero_afiliacion" name="numero_afiliacion" required>
+                        </div>
 
-                <label for="tipo_medicamento">Tipo de Medicamento:</label>
-                <input type="text" name="tipo_medicamento" required><br><br>
+                        <div class="col-md-6">
+                            <label for="pae" class="form-label">PAE</label>
+                            <input type="text" class="form-control" id="pae" name="pae" required>
+                        </div>
 
-                <label for="medios_diagnosticos">Medios Diagnósticos:</label>
-                <input type="text" name="medios_diagnosticos" required><br><br>
+                        <div class="col-md-6">
+                            <label for="tipo_pae" class="form-label">Tipo de PAE</label>
+                            <input type="text" class="form-control" id="tipo_pae" name="tipo_pae" required>
+                        </div>
 
-                <label for="empresa">Empresa:</label>
-                <input type="text" name="empresa" required><br><br>
+                        <div class="col-md-6">
+                            <label for="ubicacion_pae" class="form-label">Ubicación del PAE</label>
+                            <input type="text" class="form-control" id="ubicacion_pae" name="ubicacion_pae" required>
+                        </div>
 
-                <label for="afiliacion">Afiliación:</label>
-                <input type="text" name="afiliacion" required><br><br>
+                        <div class="col-md-6">
+                            <label for="jornada_activacion" class="form-label">Jornada de Activación</label>
+                            <input type="text" class="form-control" id="jornada_activacion" name="jornada_activacion" required>
+                        </div>
 
-                <label for="tipo_pae">Tipo PAE:</label>
-                <input type="text" name="tipo_pae" required><br><br>
+                        <div class="col-md-6">
+                            <label class="form-label">Activación Presencial</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="activacion_presencial" name="activacion_presencial">
+                                <label class="form-check-label" for="activacion_presencial">Sí</label>
+                            </div>
+                        </div>
 
-                <label for="ubicacion_pae">Ubicación PAE:</label>
-                <input type="text" name="ubicacion_pae" required><br><br>
+                        <div class="col-md-6">
+                            <label for="hora_activacion_pae" class="form-label">Hora de Activación del PAE</label>
+                            <input type="time" class="form-control" id="hora_activacion_pae" name="hora_activacion_pae" required>
+                        </div>
 
-                <label for="dx_inicial">DX Inicial:</label>
-                <input type="text" name="dx_inicial" required><br><br>
+                        <div class="col-md-6">
+                            <label for="tiempo_respuesta_sacs" class="form-label">Tiempo de Respuesta SACS</label>
+                            <input type="text" class="form-control" id="tiempo_respuesta_sacs" name="tiempo_respuesta_sacs" required>
+                        </div>
 
-                <label for="dx_cie10">DX CIE10:</label>
-                <input type="text" name="dx_cie10" required><br><br>
+                        <div class="col-md-6">
+                            <label for="hora_llegada_pae_ips" class="form-label">Hora de Llegada del PAE al Lugar (IPS)</label>
+                            <input type="time" class="form-control" id="hora_llegada_pae_ips" name="hora_llegada_pae_ips" required>
+                        </div>
+                    </div>
 
-                <label for="descripcion_cie10">Descripción CIE10:</label>
-                <input type="text" name="descripcion_cie10" required><br><br>
-
-                <label for="jornada_activacion">Jornada Activación:</label>
-                <input type="text" name="jornada_activacion" required><br><br>
-
-                <label for="activacion_presencial">Activación Presencial:</label>
-                <input type="checkbox" name="activacion_presencial"><br><br>
-
-                <label for="hora_activacion_caso">Hora Activación Caso:</label>
-                <input type="time" name="hora_activacion_caso" required><br><br>
-
-                <label for="hora_activacion_pae">Hora Activación PAE:</label>
-                <input type="time" name="hora_activacion_pae" required><br><br>
-
-                <label for="tiempo_respuesta_sacs">Tiempo Respuesta SACS:</label>
-                <input type="text" name="tiempo_respuesta_sacs" required><br><br>
-
-                <label for="hora_llegada_pae">Hora Llegada PAE:</label>
-                <input type="time" name="hora_llegada_pae" required><br><br>
-
-                <div class="getquote_bt">
-                    <button type="submit" class="btn-submit">
-                        Guardar Activación
-                        <span><img src="/images/right-arrow.png" alt="arrow"></span>
-                    </button>
-                </div>
-
-            </form>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar Activación</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
+
     </div>
     <!-- news section end -->
     <!-- footer section start -->
