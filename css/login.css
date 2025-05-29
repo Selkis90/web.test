@@ -1,0 +1,83 @@
+/* Estilización del cuerpo */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+
+    background-image: url('../images/fondoMedico.jpg');
+    background-size: cover; /* La imagen cubrirá todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+}
+
+/* Contenedor del formulario */
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Título */
+.login-container h1 {
+    font-weight: bold;
+    color: #00796b;
+}
+
+/* Campos de entrada */
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="number"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botones */
+.btn-Tertiary, 
+.btn-Quaternary {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px; /* Bordes más redondeados */
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px; /* Espacio entre los botones */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Registrarse */
+.btn-Tertiary {
+    background: linear-gradient(135deg, #00bfa5, #00796b);
+    color: white;
+}
+
+.btn-Tertiary:hover {
+    background: linear-gradient(135deg, #00796b, #004d40);
+    transform: scale(1.05);
+}
+
+/* Botón Inicio */
+.btn-Quaternary {
+    background: linear-gradient(135deg, #004d40, #00251a);
+    color: white;
+}
+
+.btn-Quaternary:hover {
+    background: linear-gradient(135deg, #00251a, #00120e);
+    transform: scale(1.05);
+}
