@@ -169,6 +169,8 @@ require_once '../header.php';
 </div>
 <!-- news section end -->
 
+
+
 <?php
 require_once '../footer.php';
 ?>
