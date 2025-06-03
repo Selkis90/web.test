@@ -49,18 +49,18 @@ require_once '../header.php';
                     </div>
 
                     <div class="col-md-6">
-                        <label for="departamentos" class="form-label">Departamento</label>
+                        <label for="departamentos" class="form-label">Ciudad</label>
                         <select id="departamentos" name="ciudad" class="form-control"
                             onchange="actualizarMunicipios()" required>
-                            <option value="">Seleccione un departamento...</option>
+                            <option value="">Seleccione una Ciudad...</option>
                             <!-- Los departamentos se generan desde el archivo JavaScript -->
                         </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="municipios" class="form-label">Municipio</label>
+                        <label for="municipios" class="form-label">Departamento</label>
                         <select id="municipios" name="departamento" class="form-control" required>
-                            <option value="">Selecciona primero un departamento</option>
+                            <option value="">Selecciona primero una Ciudad</option>
                         </select>
                     </div>
 
@@ -80,8 +80,9 @@ require_once '../header.php';
                         <br>
                         <select class="form-select" id="rlp" name="rlp" required>
                             <option value="">Seleccione...</option>
-                            <option value="1">Sí</option>
-                            <option value="0">No</option>
+                            <option value="0">RLP ESPECIAL </option>
+                            <option value="1">RLP SI </option>
+                            <option value="2">NO AMEEC</option>
                         </select>
                     </div>
 
@@ -111,12 +112,17 @@ require_once '../header.php';
                         <label for="pae" class="form-label">PAE</label>
                         <input type="text" class="form-control" id="pae" name="pae" required>
                     </div>
-
                     <div class="col-md-6">
                         <label for="tipo_pae" class="form-label">Tipo de PAE</label>
-                        <input type="text" class="form-control" id="tipo_pae" name="tipo_pae" required>
+                        <br>
+                        <select class="form-select" id="tipo_pae" name="tipo_pae" required>
+                            <option value="">Seleccione...</option>
+                            <option value="0">AUXILIAR ADMINISTRATIVO </option>
+                            <option value="1">PAE 1</option>
+                            <option value="2">PAE 2</option>
+                            <option value="3">PAE 3</option>
+                        </select>
                     </div>
-
                     <div class="col-md-6">
                         <label for="ubicacion_pae" class="form-label">Ubicación del PAE</label>
                         <input type="text" class="form-control" id="ubicacion_pae" name="ubicacion_pae" required>
@@ -129,12 +135,13 @@ require_once '../header.php';
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">Activación Presencial</label>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="activacion_presencial"
-                                name="activacion_presencial">
-                            <label class="form-check-label" for="activacion_presencial">Sí</label>
-                        </div>
+                        <label for="tipo_pae" class="form-label">Activación Presencial</label>
+                        <br>
+                        <select class="form-select" id="activacion_presencial" name="activacion_presencial" required>
+                            <option value="">Seleccione...</option>
+                            <option value="0">SI</option>
+                            <option value="1">NO</option>
+                        </select>
                     </div>
 
                     <div class="col-md-6">
