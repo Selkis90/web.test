@@ -30,6 +30,9 @@
    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
+
+
+
 </head>
 
 <body>
@@ -56,7 +59,7 @@
                   <a class="nav-link" href="./estadistica.php">Estadisticas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./news.php">Nuevo modulo 1</a>
+                  <a class="nav-link" href="../php/ver_detalle_caso.php">Nuevo modulo 1</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="./client.php">Nuevo modulo 2</a>

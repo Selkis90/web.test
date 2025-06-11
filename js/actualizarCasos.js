@@ -3,7 +3,7 @@ const casosPorPagina = 10;
 let paginaActual = 1;
 
 const inputCedula = document.getElementById("inputCedula");
-const inputAfiliaciones = document.getElementById("inputAfiliaciones");
+const inputAfiliacion = document.getElementById("inputAfiliaciones");
 
 function mostrarCasos(pagina) {
   const inicio = (pagina - 1) * casosPorPagina;
@@ -31,7 +31,7 @@ function mostrarCasos(pagina) {
             <div class="text-secondary small">Afiliación: <span class="fw-medium">${caso.afiliacion}</span></div>
           </div>
           <div>
-            <button class="btn btn-sm btn-primary rounded-pill px-4">Ver Detalles</button>
+            <button class="btn btn-sm btn-primary rounded-pill px-4" onclick="verDetalles(${caso.id})">Ver Detalles</button>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ function cambiarPagina(pagina) {
 
 async function obtenerCasosFiltrados() {
   const cedula = inputCedula.value.trim();
-  const afiliacion = inputAfiliaciones.value.trim();
+  const afiliacion = inputAfiliacion.value.trim();
 
   const params = new URLSearchParams();
   if (cedula) params.append('cedula', cedula);
@@ -88,19 +88,27 @@ async function obtenerCasosFiltrados() {
 
   try {
     const respuesta = await fetch(`/php/obtener_casos.php?${params.toString()}`);
+    if (!respuesta.ok) throw new Error("Error de red");
+
     casos = await respuesta.json();
     paginaActual = 1;
     mostrarCasos(paginaActual);
     crearPaginacion();
   } catch (error) {
     console.error("Error al cargar los casos:", error);
+    const lista = document.getElementById("casos-list");
+    lista.innerHTML = `
+      <div class="alert alert-danger">Ocurrió un error al cargar los casos. Intenta nuevamente.</div>`;
   }
+}
+
+function verDetalles(idCaso) {
+  window.location.href = `verDetalleCaso.php?id=${idCaso}`;
 }
 
 window.onload = async () => {
   await obtenerCasosFiltrados(); // carga inicial
 };
 
-// Listeners para búsqueda en tiempo real
 inputCedula.addEventListener("input", obtenerCasosFiltrados);
-inputAfiliaciones.addEventListener("input", obtenerCasosFiltrados);
+inputAfiliacion.addEventListener("input", obtenerCasosFiltrados);
