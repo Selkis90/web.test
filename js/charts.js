@@ -10,47 +10,69 @@ function generateColors(count) {
     return colors;
 }
 
-// Función para renderizar una gráfica de barras
-function renderBarChart(canvasId, labels, data) {
-    // Validar si el canvas existe
+// ✅ Función mejorada para renderizar una gráfica de barras
+function renderBarChart(canvasId, labels, data, multiple = false) {
     const canvasElement = document.getElementById(canvasId);
     if (!canvasElement) {
         console.error(`Canvas con ID "${canvasId}" no encontrado.`);
         return;
     }
 
-    // Validar si los datos son arreglos no vacíos
     if (!Array.isArray(labels) || labels.length === 0) {
         console.error('El parámetro "labels" debe ser un arreglo no vacío.');
         return;
     }
-    if (!Array.isArray(data) || data.length === 0) {
-        console.error('El parámetro "data" debe ser un arreglo no vacío.');
-        return;
+
+    const ctx = canvasElement.getContext('2d');
+
+    let datasets = [];
+
+    if (multiple) {
+        // Múltiples datasets (grupos)
+        if (!Array.isArray(data) || !data.every(arr => Array.isArray(arr))) {
+            console.error('El parámetro "data" debe ser un arreglo de arreglos.');
+            return;
+        }
+
+        const defaultLabels = ['Grupo 1', 'Grupo 2', 'Grupo 3'];
+        datasets = data.map((dataset, index) => {
+            const colors = generateColors(dataset.length);
+            return {
+                label: defaultLabels[index] || `Grupo ${index + 1}`,
+                data: dataset,
+                backgroundColor: colors[0],
+                borderColor: colors[0].replace('0.6', '1'),
+                borderWidth: 1
+            };
+        });
+    } else {
+        // Un solo dataset
+        if (!Array.isArray(data) || data.length === 0) {
+            console.error('El parámetro "data" debe ser un arreglo no vacío.');
+            return;
+        }
+
+        const colors = generateColors(data.length);
+        datasets = [{
+            label: 'Activaciones',
+            data: data,
+            backgroundColor: colors,
+            borderColor: colors.map(color => color.replace('0.6', '1')),
+            borderWidth: 1
+        }];
     }
 
-    // Generar colores dinámicamente
-    const colors = generateColors(data.length);
-
-    // Crear la gráfica
-    const ctx = canvasElement.getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: labels, // Etiquetas (eje x)
-            datasets: [{
-                label: 'Activaciones', // Etiqueta del dataset
-                data: data, // Valores (eje y)
-                backgroundColor: colors, // Colores de las barras
-                borderColor: colors.map(color => color.replace('0.6', '1')), // Bordes (opacidad 1)
-                borderWidth: 1
-            }]
+            labels: labels,
+            datasets: datasets
         },
         options: {
-            responsive: true, // Gráfica adaptable al tamaño del contenedor
+            responsive: true,
             scales: {
                 y: {
-                    beginAtZero: true // Iniciar eje y desde 0
+                    beginAtZero: true
                 }
             }
         }
@@ -59,14 +81,12 @@ function renderBarChart(canvasId, labels, data) {
 
 // Función para renderizar una gráfica de pastel
 function renderPieChart(canvasId, labels, data) {
-    // Validar si el canvas existe
     const canvasElement = document.getElementById(canvasId);
     if (!canvasElement) {
         console.error(`Canvas con ID "${canvasId}" no encontrado.`);
         return;
     }
 
-    // Validar si los datos son arreglos no vacíos
     if (!Array.isArray(labels) || labels.length === 0) {
         console.error('El parámetro "labels" debe ser un arreglo no vacío.');
         return;
@@ -76,22 +96,20 @@ function renderPieChart(canvasId, labels, data) {
         return;
     }
 
-    // Generar colores dinámicamente
     const colors = generateColors(data.length);
 
-    // Crear la gráfica
     const ctx = canvasElement.getContext('2d');
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: labels, // Etiquetas (categorías)
+            labels: labels,
             datasets: [{
-                data: data, // Valores (secciones del pastel)
-                backgroundColor: colors // Colores de las secciones
+                data: data,
+                backgroundColor: colors
             }]
         },
         options: {
-            responsive: true // Gráfica adaptable al tamaño del contenedor
+            responsive: true
         }
     });
 }

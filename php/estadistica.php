@@ -2,6 +2,7 @@
 require_once '../config/sesion.php';
 require_once '../header.php';
 require_once '../conexion.php';
+$conexion->query("SET lc_time_names = 'es_ES'");
 
 // 1. RLP por mes
 $queryRLP = "
@@ -46,15 +47,25 @@ $queryPAE = "
 ";
 $resPAE = $conexion->query($queryPAE);
 $paeLabels = $paeValores = [];
+
+$mapaPAE = [
+    '0' => 'AUXILIAR ADMINISTRATIVO',
+    '1' => 'PAE 1',
+    '2' => 'PAE 2',
+    '3' => 'PAE 3'
+];
+
 while ($row = $resPAE->fetch_assoc()) {
-   $paeLabels[] = $row['tipo_pae'];
-   $paeValores[] = (int)$row['cantidad'];
+    $codigo = $row['tipo_pae'];
+    if (array_key_exists($codigo, $mapaPAE)) {
+        $paeLabels[] = $mapaPAE[$codigo];
+        $paeValores[] = (int)$row['cantidad'];
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
    <meta charset="UTF-8">
    <title>Gráficas Activaciones</title>
@@ -72,7 +83,6 @@ while ($row = $resPAE->fetch_assoc()) {
       }
    </style>
 </head>
-
 <body>
    <form method="GET" style="text-align:center; margin:20px;">
       <label for="empresa">Empresa:</label>
@@ -87,22 +97,29 @@ while ($row = $resPAE->fetch_assoc()) {
       <button type="submit">Filtrar</button>
    </form>
 
-
    <h2 style="text-align:center;">Gráficas de Activaciones</h2>
 
-   <!-- 1. RLP por mes -->
    <h3>Distribución RLP por Mes</h3>
    <canvas id="rlpChart"></canvas>
 
-   <!-- 2. Activación presencial -->
    <h3>Tipo de Activación (Presencial o NO)</h3>
    <canvas id="presencialChart"></canvas>
 
-   <!-- 3. Tipos de PAE -->
    <h3>Tipos de PAE más Usados</h3>
    <canvas id="paeChart"></canvas>
 
    <script>
+      function generateColors(count) {
+         const colors = [];
+         for (let i = 0; i < count; i++) {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            colors.push(`rgba(${r}, ${g}, ${b}, 0.7)`);
+         }
+         return colors;
+      }
+
       // RLP por mes
       new Chart(document.getElementById('rlpChart').getContext('2d'), {
          type: 'bar',
@@ -132,18 +149,30 @@ while ($row = $resPAE->fetch_assoc()) {
                   display: true,
                   text: 'Distribución RLP por Mes'
                }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     stepSize: 1,
+                     callback: function(value) {
+                        return Number.isInteger(value) ? value : null;
+                     }
+                  }
+               }
             }
          }
       });
 
-      // Activación presencial (dona)
+      // Activación presencial
+      const presencialColors = generateColors(<?= count($presencialValores) ?>);
       new Chart(document.getElementById('presencialChart').getContext('2d'), {
          type: 'doughnut',
          data: {
             labels: <?= json_encode($presencialLabels) ?>,
             datasets: [{
                data: <?= json_encode($presencialValores) ?>,
-               backgroundColor: ['#36A2EB', '#FF6384']
+               backgroundColor: presencialColors
             }]
          },
          options: {
@@ -156,7 +185,8 @@ while ($row = $resPAE->fetch_assoc()) {
          }
       });
 
-      // Tipo de PAE (barras horizontales si quieres cambiar: `type: 'bar'` y agregar `indexAxis: 'y'`)
+      // Tipo de PAE
+      const paeColors = generateColors(<?= count($paeValores) ?>);
       new Chart(document.getElementById('paeChart').getContext('2d'), {
          type: 'bar',
          data: {
@@ -164,7 +194,7 @@ while ($row = $resPAE->fetch_assoc()) {
             datasets: [{
                label: 'Cantidad',
                data: <?= json_encode($paeValores) ?>,
-               backgroundColor: 'rgba(153, 102, 255, 0.7)'
+               backgroundColor: paeColors
             }]
          },
          options: {
@@ -174,13 +204,22 @@ while ($row = $resPAE->fetch_assoc()) {
                   display: true,
                   text: 'Tipos de PAE más utilizados'
                }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     stepSize: 1,
+                     callback: function(value) {
+                        return Number.isInteger(value) ? value : null;
+                     }
+                  }
+               }
             }
          }
       });
    </script>
-
 </body>
-
 </html>
 
 <?php require_once '../footer.php'; ?>
