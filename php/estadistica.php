@@ -49,23 +49,24 @@ $resPAE = $conexion->query($queryPAE);
 $paeLabels = $paeValores = [];
 
 $mapaPAE = [
-    '0' => 'AUXILIAR ADMINISTRATIVO',
-    '1' => 'PAE 1',
-    '2' => 'PAE 2',
-    '3' => 'PAE 3'
+   '0' => 'AUXILIAR ADMINISTRATIVO',
+   '1' => 'PAE 1',
+   '2' => 'PAE 2',
+   '3' => 'PAE 3'
 ];
 
 while ($row = $resPAE->fetch_assoc()) {
-    $codigo = $row['tipo_pae'];
-    if (array_key_exists($codigo, $mapaPAE)) {
-        $paeLabels[] = $mapaPAE[$codigo];
-        $paeValores[] = (int)$row['cantidad'];
-    }
+   $codigo = $row['tipo_pae'];
+   if (array_key_exists($codigo, $mapaPAE)) {
+      $paeLabels[] = $mapaPAE[$codigo];
+      $paeValores[] = (int)$row['cantidad'];
+   }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
    <meta charset="UTF-8">
    <title>Gráficas Activaciones</title>
@@ -83,6 +84,7 @@ while ($row = $resPAE->fetch_assoc()) {
       }
    </style>
 </head>
+
 <body>
    <form method="GET" style="text-align:center; margin:20px;">
       <label for="empresa">Empresa:</label>
@@ -220,6 +222,7 @@ while ($row = $resPAE->fetch_assoc()) {
       });
    </script>
 </body>
+
 </html>
 
 <?php require_once '../footer.php'; ?>
