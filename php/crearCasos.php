@@ -80,10 +80,12 @@ require_once '../header.php';
                         <br>
                         <select class="form-select" id="rlp" name="rlp" required>
                             <option value="">Seleccione...</option>
-                            <option value="0">RLP ESPECIAL </option>
-                            <option value="1">RLP SI </option>
-                            <option value="2">NO AMEEC</option>
+                            <option value="ESPECIAL">RLP ESPECIAL</option>
+                            <option value="SI">RLP SI</option>
+                            <option value="NO">NO AMEEC</option>
                         </select>
+
+
                     </div>
 
                     <div class="col-md-6">
@@ -117,10 +119,10 @@ require_once '../header.php';
                         <br>
                         <select class="form-select" id="tipo_pae" name="tipo_pae" required>
                             <option value="">Seleccione...</option>
-                            <option value="0">AUXILIAR ADMINISTRATIVO </option>
-                            <option value="1">PAE 1</option>
-                            <option value="2">PAE 2</option>
-                            <option value="3">PAE 3</option>
+                            <option value="AUXILIAR ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO </option>
+                            <option value="PAE 1">PAE 1</option>
+                            <option value="PAE 2">PAE 2</option>
+                            <option value="PAE 3">PAE 3</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -139,9 +141,10 @@ require_once '../header.php';
                         <br>
                         <select class="form-select" id="activacion_presencial" name="activacion_presencial" required>
                             <option value="">Seleccione...</option>
-                            <option value="0">SI</option>
-                            <option value="1">NO</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
                         </select>
+
                     </div>
 
                     <div class="col-md-6">

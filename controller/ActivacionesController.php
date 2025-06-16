@@ -31,7 +31,7 @@ class ActivacionesController
                 'tipo_pae' => $_POST['tipo_pae'],
                 'ubicacion_pae' => $_POST['ubicacion_pae'],
                 'jornada_activacion' => $_POST['jornada_activacion'],
-                'activacion_presencial' => isset($_POST['activacion_presencial']) ? 'SI' : 'NO',
+                'activacion_presencial' => $_POST['activacion_presencial'],
                 'hora_activacion_caso' => $_POST['hora_activacion_caso'],
                 'hora_activacion_pae' => $_POST['hora_activacion_pae'],
                 'tiempo_respuesta_sacs' => $_POST['tiempo_respuesta_sacs'],
