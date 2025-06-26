@@ -2,19 +2,29 @@
 // Incluye la clase TCPDF
 require_once '../librerias/tcpdf/tcpdf.php';
 
-// Subclase para personalizar cabecera y pie de página
+// Subclase para personalizar cabecera, pie de página y fondo
 class MYPDF extends TCPDF {
     public function Header() {
-        $this->SetFont('helvetica', 'B', 14);
-        $this->Cell(0, 15, 'Reporte de Activaciones - Detalle por Persona', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-        $this->Line(10, 25, 200, 25);
-    }
+    // Ruta de la imagen (usa la ruta temporal del archivo subido)
+    $image_file = '/var/www/web.test/images/fondopdf.jpeg';
 
-    public function Footer() {
-        $this->SetY(-15);
-        $this->SetFont('helvetica', 'I', 8);
-        $this->Cell(0, 10, 'Página ' . $this->getAliasNumPage() . ' de ' . $this->getAliasNbPages(), 0, false, 'C');
-    }
+    // Ajustar imagen al tamaño completo de la página (A4: 210mm x 297mm)
+    $this->Image($image_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0); // Ajuste solo por ancho
+
+
+    // Superponer un fondo blanco semitransparente
+    $this->SetAlpha(0.3);
+    $this->Rect(0, 0, $this->getPageWidth(), $this->getPageHeight(), 'F', '', [255, 255, 255]);
+    $this->SetAlpha(1);
+
+    // Título del encabezado
+        $this->SetY(10);
+    $this->SetFont('helvetica', 'B', 14);
+    $this->SetTextColor(0, 0, 0);
+    $this->Cell(0, 15, 'Reporte de Activaciones - Detalle por Persona', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+
+}
+
 }
 
 // Crear el documento PDF
