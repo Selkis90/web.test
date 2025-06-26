@@ -2,87 +2,111 @@
 // Incluye la clase TCPDF
 require_once '../librerias/tcpdf/tcpdf.php';
 
-// 1. Crear una subclase para personalizar cabecera y pie de página
+// Subclase para personalizar cabecera y pie de página
 class MYPDF extends TCPDF {
-
-    // Cabecera personalizada
     public function Header() {
-        // Establece la fuente
         $this->SetFont('helvetica', 'B', 14);
-        // Título centrado
-        $this->Cell(0, 15, 'Reporte de Activaciones', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-        // Línea inferior
+        $this->Cell(0, 15, 'Reporte de Activaciones - Detalle por Persona', 0, false, 'C', 0, '', 0, false, 'M', 'M');
         $this->Line(10, 25, 200, 25);
     }
 
-    // Pie de página personalizado
     public function Footer() {
-        // Posición desde abajo
         $this->SetY(-15);
-        // Fuente en cursiva
         $this->SetFont('helvetica', 'I', 8);
-        // Número de página
-        $this->Cell(0, 10, 'Página '.$this->getAliasNumPage().' de '.$this->getAliasNbPages(), 0, false, 'C');
+        $this->Cell(0, 10, 'Página ' . $this->getAliasNumPage() . ' de ' . $this->getAliasNbPages(), 0, false, 'C');
     }
 }
 
-// 2. Crear nuevo documento PDF
+// Crear el documento PDF
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-
-// 3. Configurar información del documento
 $pdf->SetCreator('Sistema Healthcare');
 $pdf->SetAuthor('Tu Nombre');
 $pdf->SetTitle('Reporte Activaciones');
 $pdf->SetSubject('Reporte generado con TCPDF');
 $pdf->SetKeywords('TCPDF, PDF, reporte, activaciones');
 
-// 4. Configurar márgenes
-$pdf->SetMargins(15, 30, 15);  // Izquierda, arriba (espacio para cabecera), derecha
+// Márgenes y configuración
+$pdf->SetMargins(10, 30, 10);
 $pdf->SetHeaderMargin(10);
 $pdf->SetFooterMargin(15);
+$pdf->SetAutoPageBreak(TRUE, 20);
+$pdf->SetFont('helvetica', '', 8);
 
-// 5. Activar salto automático de página
-$pdf->SetAutoPageBreak(TRUE, 25);
+// Dividir datos en secciones
+$sections = [
+    "Información General" => ['id', 'fecha_activacion', 'trabajador', 'tipo_documento', 'identificacion'],
+    "Ubicación" => ['ciudad', 'departamento', 'ips'],
+    "Detalles del Servicio" => ['servicio_prestado_inicial', 'rlp', 'medicamentos', 'tipo_medicamento'],
+    "Datos de Afiliación" => ['empresa', 'numero_afiliacion', 'pae', 'tipo_pae', 'ubicacion_pae'],
+    "Tiempos y Activación" => ['jornada_activacion', 'activacion_presencial', 'hora_activacion_caso', 'hora_activacion_pae', 'tiempo_respuesta_sacs', 'hora_llegada_pae_ips']
+];
 
-// 6. Establecer fuente por defecto
-$pdf->SetFont('helvetica', '', 10);
-
-// 7. Agregar una nueva página
-$pdf->AddPage();
-
-// 8. Contenido de prueba - Tabla
-$html = '
-<h2 style="text-align:center;">Listado de Activaciones</h2>
-<table border="1" cellpadding="5">
-    <thead>
-        <tr bgcolor="#CCCCCC">
-            <th><strong>ID</strong></th>
-            <th><strong>Fecha</strong></th>
-            <th><strong>Trabajador</strong></th>
-            <th><strong>Identificación</strong></th>
-        </tr>
-    </thead>
-    <tbody>';
-
-// Simulación de datos desde base de datos
+// Conexión a la base de datos
 $conexion = new mysqli("localhost", "root", "", "healthcare_db");
-$consulta = "SELECT id, fecha_activacion, trabajador, identificacion FROM activaciones LIMIT 10";
-$resultado = $conexion->query($consulta);
-
-// 9. Recorrer resultados y agregar a la tabla
-while ($fila = $resultado->fetch_assoc()) {
-    $html .= '<tr>
-                <td>'.$fila['id'].'</td>
-                <td>'.$fila['fecha_activacion'].'</td>
-                <td>'.$fila['trabajador'].'</td>
-                <td>'.$fila['identificacion'].'</td>
-              </tr>';
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 
-$html .= '</tbody></table>';
+$query = "SELECT id, fecha_activacion, trabajador, tipo_documento, identificacion, ciudad, departamento,
+          ips, servicio_prestado_inicial, rlp, medicamentos, tipo_medicamento, empresa, numero_afiliacion,
+          pae, tipo_pae, ubicacion_pae, jornada_activacion, activacion_presencial, hora_activacion_caso,
+          hora_activacion_pae, tiempo_respuesta_sacs, hora_llegada_pae_ips FROM activaciones";
+$result = $conexion->query($query);
 
-// 10. Escribir el contenido HTML en el PDF
-$pdf->writeHTML($html, true, false, true, false, '');
+// Generar una página por registro
+while ($row = $result->fetch_assoc()) {
+    $pdf->AddPage();
+    $html = '<style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                th {
+                    background-color: #f4f4f4;
+                    font-weight: bold;
+                    text-align: left;
+                    padding: 5px;
+                    font-size: 9px;
+                }
+                td {
+                    text-align: left;
+                    padding: 5px;
+                    font-size: 8px;
+                    word-wrap: break-word;
+                }
+                .section-title {
+                    font-size: 10px;
+                    font-weight: bold;
+                    padding: 10px 0;
+                    text-align: left;
+                    border-bottom: 1px solid #000;
+                }
+            </style>';
+    
+    foreach ($sections as $sectionTitle => $columns) {
+        $html .= '<div class="section-title">' . $sectionTitle . '</div>';
+        $html .= '<table border="1" cellpadding="4">';
+        $html .= '<thead><tr>';
+        
+        // Encabezados de sección
+        foreach ($columns as $column) {
+            $html .= '<th>' . ucfirst(str_replace('_', ' ', $column)) . '</th>';
+        }
+        $html .= '</tr></thead><tbody>';
+        
+        // Filas de datos
+        $html .= '<tr>';
+        foreach ($columns as $column) {
+            $html .= '<td>' . $row[$column] . '</td>';
+        }
+        $html .= '</tr>';
+        
+        $html .= '</tbody></table><br>';
+    }
+    
+    $pdf->writeHTML($html, true, false, true, false, '');
+}
 
-// 11. Salida del PDF al navegador
-$pdf->Output('reporte_activaciones.pdf', 'I');  // 'I' = Inline (mostrar en navegador)
+// Salida del PDF
+$pdf->Output('reporte_activaciones.pdf', 'I');
+?>
