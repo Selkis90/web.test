@@ -6,10 +6,10 @@ require_once '../librerias/tcpdf/tcpdf.php';
 class MYPDF extends TCPDF {
     public function Header() {
     // Ruta de la imagen (usa la ruta temporal del archivo subido)
-    $image_file = '/var/www/web.test/images/fondopdf.jpeg';
+    /* $image_file = '/var/www/web.test/images/fondopdf.jpeg'; */
 
     // Ajustar imagen al tamaño completo de la página (A4: 210mm x 297mm)
-    $this->Image($image_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0); // Ajuste solo por ancho
+    /* $this->Image($image_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0); */ // Ajuste solo por ancho
 
 
     // Superponer un fondo blanco semitransparente
