@@ -17,7 +17,7 @@ require_once '../header.php';
     </p>
     <div class="getquote_bt_1">
       <a href="../php/crearCasos.php">Crear Casos<span><img src="/images/right-arrow.png" /></span></a>
-      <a href="../php/actualizarCasos.php">Actualizar casos <span><img src="/images/right-arrow.png" /></span></a>
+      <a href="../php/listar_casos.php">Actualizar casos <span><img src="/images/right-arrow.png" /></span></a>
       <a href="../php/verCasos.php">Ver casos<span><img src="/images/right-arrow.png" /></span></a>
       <a href="../php/pdf_prueba.php" target="_blank" style="text-decoration:none;">PDF<span><img src="/images/right-arrow.png" alt="Ir a PDF" style="vertical-align:middle; width:16px; height:16px;" /></span></a>
     </div>
