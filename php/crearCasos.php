@@ -69,11 +69,23 @@ require_once '../header.php';
                         <input type="text" class="form-control" id="ips" name="ips" required>
                     </div>
 
+                    <br>
+
                     <div class="col-md-6">
                         <label for="servicio_prestado_inicial" class="form-label">Servicio Prestado Inicial</label>
-                        <input type="text" class="form-control" id="servicio_prestado_inicial"
-                            name="servicio_prestado_inicial" required>
+                        <br>
+                        <select class="form-select" id="servicio_prestado_inicial" name="servicio_prestado_inicial" required>
+                            <option value="">Seleccione...</option>
+                            <option value="MEDICO A EMPRESA" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'MEDICO A EMPRESA') ? 'selected' : '' ?>>MEDICO A EMPRESA</option>
+                            <option value="URGENCIAS" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'URGENCIAS') ? 'selected' : '' ?>>URGENCIAS</option>
+                            <option value="TELECONSULTA" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'TELECONSULTA') ? 'selected' : '' ?>>TELECONSULTA</option>
+                            <option value="SEGUIMIENTO 24 HORAS" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'SEGUIMIENTO 24 HORAS') ? 'selected' : '' ?>>SEGUIMIENTO 24 HORAS</option>
+                            <option value="HOSPITALIZACION" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'HOSPITALIZACION') ? 'selected' : '' ?>>HOSPITALIZACION</option>
+                            <option value="CONSULTA ML" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'CONSULTA ML') ? 'selected' : '' ?>>CONSULTA ML</option>
+                            <option value="SIMULACRO/URGENCIAS" <?= (isset($detalle['servicio_prestado_inicial']) && $detalle['servicio_prestado_inicial'] == 'SIMULACRO/URGENCIAS') ? 'selected' : '' ?>>SIMULACRO/URGENCIAS</option>
+                        </select>
                     </div>
+
 
                     <div class="col-md-6">
                         <label for="rlp" class="form-label">RLP</label>
@@ -112,8 +124,35 @@ require_once '../header.php';
 
                     <div class="col-md-6">
                         <label for="pae" class="form-label">PAE</label>
-                        <input type="text" class="form-control" id="pae" name="pae" required>
+                        <br>
+                        <select class="form-select" id="pae" name="pae" required>
+                            <option value="">Seleccione...</option>
+                            <option value="BRAYAN MERCADO">BRAYAN MERCADO</option>
+                            <option value="ELIATRIZ GOMEZ">ELIATRIZ GOMEZ</option>
+                            <option value="ANGIE CASTRO">ANGIE CASTRO</option>
+                            <option value="CESAR JOAQUIN CARVAJAL ZUÑIGA">CESAR JOAQUIN CARVAJAL ZUÑIGA</option>
+                            <option value="EDUARDO GONZALEZ">EDUARDO GONZALEZ</option>
+                            <option value="LEIDY RICO">LEIDY RICO</option>
+                            <option value="FRANCISCO ZUÑIGA">FRANCISCO ZUÑIGA</option>
+                            <option value="GLENIS MUNIRA CARRILLO">GLENIS MUNIRA CARRILLO</option>
+                            <option value="HERNAN DARIO HERNANDEZ SANTACOLOMA">HERNAN DARIO HERNANDEZ SANTACOLOMA</option>
+                            <option value="IVAN LOZANO">IVAN LOZANO</option>
+                            <option value="JENNIFER GUZMAN">JENNIFER GUZMAN</option>
+                            <option value="JESSICA CHIRAN">JESSICA CHIRAN</option>
+                            <option value="JORGE ARMANDO ARDILA PEINADO">JORGE ARMANDO ARDILA PEINADO</option>
+                            <option value="TATIANA MORENO">TATIANA MORENO</option>
+                            <option value="MONICA SALAZAR">MONICA SALAZAR</option>
+                            <option value="YECFRI RUIZ">YECFRI RUIZ</option>
+                            <option value="SERGIO VARGAS">SERGIO VARGAS</option>
+                            <option value="LINA TRUJILLO">LINA TRUJILLO</option>
+                            <option value="LINA LINERO">LINA LINERO</option>
+                            <option value="YUDEX VERGARA">YUDEX VERGARA</option>
+                            <option value="OLGA CUELLO">OLGA CUELLO</option>
+                            <option value="JULIANA VIVAS">JULIANA VIVAS</option>
+                            <option value="JACKELINE LONDOÑO">JACKELINE LONDOÑO</option>
+                        </select>
                     </div>
+
                     <div class="col-md-6">
                         <label for="tipo_pae" class="form-label">Tipo de PAE</label>
                         <br>
@@ -132,9 +171,15 @@ require_once '../header.php';
 
                     <div class="col-md-6">
                         <label for="jornada_activacion" class="form-label">Jornada de Activación</label>
-                        <input type="text" class="form-control" id="jornada_activacion" name="jornada_activacion"
-                            required>
+                        <br>
+                        <select class="form-select" id="jornada_activacion" name="jornada_activacion" required>
+                            <option value="">Seleccione...</option>
+                            <option value="TARDE 12:01 - 20:59" <?= (isset($detalle['jornada_activacion']) && $detalle['jornada_activacion'] == 'TARDE 12:01 - 20:59') ? 'selected' : '' ?>>TARDE 12:01 - 20:59</option>
+                            <option value="MAÑANA 06 AM-12 M" <?= (isset($detalle['jornada_activacion']) && $detalle['jornada_activacion'] == 'MAÑANA 06 AM-12 M') ? 'selected' : '' ?>>MAÑANA 06 AM-12 M</option>
+                            <option value="NOCTURNA 21:00 - 5:59 AM" <?= (isset($detalle['jornada_activacion']) && $detalle['jornada_activacion'] == 'NOCTURNA 21:00 - 5:59 AM') ? 'selected' : '' ?>>NOCTURNA 21:00 - 5:59 AM</option>
+                        </select>
                     </div>
+
 
                     <div class="col-md-6">
                         <label for="tipo_pae" class="form-label">Activación Presencial</label>
@@ -155,7 +200,7 @@ require_once '../header.php';
 
                     <div class="col-md-6">
                         <label for="tiempo_respuesta_sacs" class="form-label">Tiempo de Respuesta SACS</label>
-                        <input type="text" class="form-control" id="tiempo_respuesta_sacs"
+                        <input type="time" class="form-control" id="tiempo_respuesta_sacs"
                             name="tiempo_respuesta_sacs" required>
                     </div>
 
