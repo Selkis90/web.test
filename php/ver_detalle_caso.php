@@ -44,7 +44,7 @@ if ($id) {
         <div class="mb-3"><strong>Cédula:</strong> <?= htmlspecialchars($caso['identificacion']) ?></div>
         <div class="mb-3"><strong>Número de Afiliación:</strong> <?= htmlspecialchars($caso['numero_afiliacion']) ?></div>
 
-        <a href="../index.html" class="btn btn-secondary mt-3">← Volver</a>
+        <a href="../php/menu.php" class="btn btn-secondary mt-3">← Volver</a>
       </div>
     <?php endif; ?>
   </div>

@@ -89,8 +89,6 @@ $detalle = $data['detalle'];
             </small>
         </div>
 
-
-
         <div class="form-group mb-2">
             <label>Descripción CIE-10:</label>
             <textarea name="descripcion_cie10" class="form-control"><?= $detalle['descripcion_cie10'] ?? '' ?></textarea>

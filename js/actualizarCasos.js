@@ -103,7 +103,7 @@ async function obtenerCasosFiltrados() {
 }
 
 function verDetalles(idCaso) {
-  window.location.href = `verDetalleCaso.php?id=${idCaso}`;
+  window.location.href = `ver_detalle_caso.php?id=${idCaso}`;
 }
 
 window.onload = async () => {
