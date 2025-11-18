@@ -20,7 +20,7 @@ if ($id) {
  <div class="container py-5">
 
     <!-- 🔍 Formulario de Búsqueda -->
-    <form action="../index.html" method="get" class="mb-4">
+ <!--    <form action="../index.html" method="get" class="mb-4">
       <div class="row g-2">
         <div class="col-md-5">
           <input type="text" name="cedula" class="form-control" placeholder="Buscar por cédula">
@@ -32,7 +32,7 @@ if ($id) {
           <button type="submit" class="btn btn-primary w-100">Buscar</button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <?php if (!$caso): ?>
       <div class='alert alert-warning'>Caso no encontrado.</div>
