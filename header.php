@@ -38,40 +38,8 @@
 <body>
    <!-- header section start -->
    <div class="header_section">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <!-- LOGO SACS -->
-         <!-- <div class="logo"><a href="index.html"><img src="/images/logoSACS.png"></a></div> -->
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                  <a class="nav-link" href="/logout.php">Cerrar sesión</a>
-               </li>
-               <li class="nav-item active">
-                  <a class="nav-link" href="./menu.php">Inicio</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./casos.php">Casos</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./estadistica.php">Estadisticas</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="../php/ver_detalle_caso.php">Nuevo modulo 1</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./client.php">Nuevo modulo 2</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./contactanos.php">Contactanos</a>
-               </li>
-               <li class="nav-item">
-                  <!-- BUSCADOR -->
-                  <a class="nav-link" href="#"><img src="/images/search-icon.png"></a>
-               </li>
-            </ul>
-         </div>
-      </nav>
+      <?php 
+      require_once "nav.php";
+
+      ?>
       <!-- header section end -->

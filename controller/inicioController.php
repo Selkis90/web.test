@@ -64,6 +64,9 @@ if (isset($_POST['iniciar_sesion'])) {
     if ($resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
 
+        // echo "<pre>";
+        // var_dump($contraseña, $usuario['contraseña'], password_verify($contraseña, $usuario['contraseña']), $usuario);exit;
+
         // Verificar la contraseña
         if (password_verify($contraseña, $usuario['contraseña'])) {
             // ✅ Establecer sesión correctamente
@@ -73,10 +76,9 @@ if (isset($_POST['iniciar_sesion'])) {
             $_SESSION['rol'] = $usuario['rol'];       // ✅ Almacenar rol_id en sesión
 
             // ✅ Redirección según el rol_id
-            if ($usuario['rol'] == 1) {
-                header("Location: ../php/menu.php"); // ADMINISTRADOR
-            } elseif ($usuario['rol'] == 2) {
-                header("Location: ../php/menuPae.php"); // PAE
+            if ($usuario['rol'] == 1 || $usuario['rol'] == 2) {
+                header("Location: ../php/inicio.php"); // ADMINISTRADOR
+
             } else {
                 header("Location: ../php/login.php?error=rol_no_valido");
             }
