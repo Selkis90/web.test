@@ -60,6 +60,10 @@ $arr_paginas = [
         'url' => 'actualizarCasos.php',
         'mostrar' => 0,
     ],
+       'ver_detalle_caso' => [
+        'url' => 'ver_detalle_caso.php',
+        'mostrar' => 0,
+    ],
     
 ];
 
@@ -78,7 +82,8 @@ $rol_1 = [
     'listar_casos',    
     'verCasos',
     'pdf_prueba',
-    'actualizarCasos'
+    'actualizarCasos',
+    'ver_detalle_caso',
 ];
 
 $rol_2 = [
@@ -89,7 +94,8 @@ $rol_2 = [
     'listar_casos',
     'verCasos',
     'pdf_prueba',
-    'actualizarCasos',    
+    'actualizarCasos',
+    'ver_detalle_caso',    
 ];
 
 // Validar que el usuario tenga permisos en la página actual:
